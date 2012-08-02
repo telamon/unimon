@@ -33,6 +33,7 @@ void setup(){
   lcd.setFont(SmallFont);
   lcd.print("X:",LEFT,20);
   lcd.print("Y:",LEFT,40);
+  Mouse.begin();
 }
 
 void loop(){
@@ -40,6 +41,7 @@ void loop(){
     touch.read();
     lcd.printNumI(touch.getX(),CENTER,20,3,'0');
     lcd.printNumI(touch.getY(),CENTER,40,3,'0');
+    Mouse.move(touch.getX()-128, touch.getY()-128, 0);
     //lcd.drawPixel (touch.getX(), touch.getY());
   }
 }
